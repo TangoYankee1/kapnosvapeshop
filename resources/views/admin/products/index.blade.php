@@ -43,7 +43,7 @@
                             @foreach ($products as $product)
                                 <tr>
                                     <td class="px-6 py-4 whitespace-nowrap">
-                                        <img src="{{ $product->image }}" alt="{{ $product->name }}" class="w-16 h-16 object-cover rounded-md">
+                                        <img src="{{ $product->image }}" alt="{{ $product->name }}" class="w-32 h-32 object-cover rounded-md">
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                                         {{ $product->name }}
@@ -52,7 +52,7 @@
                                         {{ $product->category->name }}
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                        ${{ number_format($product->price / 100, 2) }}
+                                        {{ config('currency.symbol') }}{{ number_format($product->price / 100, 2) }}
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                         <a href="{{ route('admin.products.edit', $product) }}" class="text-indigo-600 hover:text-indigo-900">Edit</a>

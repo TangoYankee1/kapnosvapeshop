@@ -17,7 +17,7 @@
                             <h3 class="text-2xl font-semibold mb-2">{{ $product->name }}</h3>
                             <p class="text-gray-600 mb-4">{{ $product->description }}</p>
                             <div class="flex justify-between items-center mt-4">
-                                <span class="font-bold text-2xl">${{ number_format($product->price, 2) }}</span>
+                                <span class="font-bold text-2xl">{{ config('currency.symbol') }}{{ number_format($product->price, 2) }}</span>
                                 <a href="#" class="bg-blue-500 text-white px-6 py-3 rounded hover:bg-blue-600">Add to Cart</a>
                             </div>
                         </div>

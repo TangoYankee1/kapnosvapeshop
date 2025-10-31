@@ -13,6 +13,9 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="{{ asset('css/product-modal.css') }}">
     </head>
     <body class="font-sans antialiased" x-data="{ isCartVisible: false, isCheckoutModalVisible: false, isSuccessModalVisible: false }" @cart-updated.window="isCartVisible = true" @open-checkout-modal.window="isCheckoutModalVisible = true">
         <x-cart-modal />
@@ -97,6 +100,6 @@
                 </footer>
             </div>
         </div>
-        @include('checkout.modal')
+        @stack('scripts')
     </body>
 </html>

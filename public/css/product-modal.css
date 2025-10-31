@@ -1,0 +1,23 @@
+/* Custom styles for the product modal */
+
+.product-modal-button {
+    background-color: #3b82f6; /* Equivalent to bg-blue-500 */
+    color: white;
+    font-weight: 700; /* Equivalent to font-bold */
+    padding: 0.5rem 1rem; /* Equivalent to py-2 px-4 */
+    border-radius: 0.375rem; /* Equivalent to rounded-md */
+    transition: background-color 0.2s;
+}
+
+.product-modal-button:hover {
+    background-color: #2563eb; /* Equivalent to hover:bg-blue-600 */
+}
+
+.product-modal-button.success {
+    background-color: #22c55e; /* Equivalent to bg-green-500 */
+}
+
+.product-modal-button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}

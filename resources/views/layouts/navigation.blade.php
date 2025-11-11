@@ -14,18 +14,15 @@
                     <x-nav-link :href="route('admin.orders.list')" :active="request()->routeIs('admin.orders.list')">
                         {{ __('Orders') }}
                     </x-nav-link>
-                    <x-nav-link href="#" :active="false">
-                        {{ __('Brand') }}
-                    </x-nav-link>
+
                     <x-nav-link :href="route('admin.products.index')" :active="request()->routeIs('admin.products.index')">
                         {{ __('Products') }}
                     </x-nav-link>
-                    <x-nav-link href="#" :active="false">
-                        {{ __('E-liquid') }}
+                    <x-nav-link :href="route('admin.brands.index')" :active="request()->routeIs('admin.brands.index')">
+                        {{ __('Brands') }}
                     </x-nav-link>
-                    <x-nav-link href="#" :active="false">
-                        {{ __('Accessories') }}
-                    </x-nav-link>
+
+
                 @else
                     <x-nav-link href="#" :active="false">
                         {{ __('BRANDS') }}
@@ -75,15 +72,6 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
                         </svg>
                     </a>
-                    <!-- Logout Icon -->
-                    <form method="POST" action="{{ route('logout') }}">
-                        @csrf
-                        <button type="submit" class="p-2 text-gray-400 hover:text-white focus:outline-none focus:text-white">
-                            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
-                            </svg>
-                        </button>
-                    </form>
                     <!-- Shopping Cart Icon -->
                     <button @click="isCartVisible = !isCartVisible" class="relative p-2 text-gray-400 hover:text-white focus:outline-none focus:text-white">
                         <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -93,6 +81,15 @@
                         <span class="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 transform translate-x-1/2 -translate-y-1/2 bg-red-600 rounded-full">{{ Cart::count() }}</span>
                         @endif
                     </button>
+                    <!-- Logout Icon -->
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <button type="submit" class="p-2 text-gray-400 hover:text-white focus:outline-none focus:text-white">
+                            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
+                            </svg>
+                        </button>
+                    </form>
                 @endif
             </div>
 
@@ -115,9 +112,7 @@
                 <x-responsive-nav-link :href="route('admin.orders.list')" :active="request()->routeIs('admin.orders.list')">
                     {{ __('Orders') }}
                 </x-responsive-nav-link>
-                <x-responsive-nav-link href="#" :active="false">
-                    {{ __('Brand') }}
-                </x-responsive-nav-link>
+
                 <x-responsive-nav-link :href="route('admin.products.index')" :active="request()->routeIs('admin.products.index')">
                     {{ __('Products') }}
                 </x-responsive-nav-link>

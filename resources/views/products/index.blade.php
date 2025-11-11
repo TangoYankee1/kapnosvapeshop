@@ -85,6 +85,8 @@
 
 
 
+
+
     <x-product-modal />
 
 @push('scripts')

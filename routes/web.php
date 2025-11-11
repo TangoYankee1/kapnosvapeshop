@@ -6,6 +6,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\BrandController;
 
 // Age Gate Routes
 Route::get('/age-gate', function () {
@@ -61,6 +62,8 @@ Route::middleware(['age.gate'])->group(function () {
         Route::get('/products/{product}/edit', [ProductController::class, 'edit'])->name('products.edit');
         Route::put('/products/{product}', [ProductController::class, 'update'])->name('products.update');
         Route::delete('/products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
+
+        Route::resource('brands', BrandController::class)->except(['show']);
     });
 });
 

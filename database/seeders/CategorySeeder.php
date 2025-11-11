@@ -13,10 +13,8 @@ class CategorySeeder extends Seeder
      */
     public function run(): void
     {
-        Category::create(['name' => 'E-Liquids']);
-        Category::create(['name' => 'Vape Kits']);
-        Category::create(['name' => 'Mods']);
-        Category::create(['name' => 'Tanks']);
-        Category::create(['name' => 'Coils']);
+        Category::create(['name' => 'Disposables']);
+        Category::create(['name' => 'E-Liquid']);
+        Category::create(['name' => 'Accessories']);
     }
 }

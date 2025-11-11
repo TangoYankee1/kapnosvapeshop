@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
+use App\Models\Category;
+
 class ProductController extends Controller
 {
     public function index()
@@ -18,15 +20,24 @@ class ProductController extends Controller
         return view('products.show', compact('product'));
     }
 
-    public function adminIndex()
+    public function adminIndex(Request $request)
     {
-        $products = Product::latest()->paginate(10);
-        return view('admin.products.index', compact('products'));
+        $category = $request->query('category');
+        $products = Product::when($category, function ($query, $category) {
+            return $query->whereHas('category', function ($q) use ($category) {
+                $q->where('name', $category);
+            });
+        })->with('category')->paginate(10);
+
+        $categories = Category::all();
+
+        return view('admin.products.index', compact('products', 'categories'));
     }
 
     public function create()
     {
-        return view('admin.products.create');
+        $categories = Category::all();
+        return view('admin.products.create', compact('categories'));
     }
 
     public function store(Request $request)

@@ -19,6 +19,18 @@
                             <span class="block sm:inline">{{ session('success') }}</span>
                         </div>
                     @endif
+
+                    <!-- Secondary Navigation -->
+                <div class="mb-4">
+                    <ul class="flex border-b">
+                        @foreach ($categories as $category)
+                            <li class="-mb-px mr-1">
+                                <a class="bg-white inline-block py-2 px-4 font-semibold {{ request('category') == $category->name ? 'border-l border-t border-r rounded-t text-blue-700' : 'text-blue-500 hover:text-blue-800' }}" href="{{ route('admin.products.index', ['category' => $category->name]) }}">{{ $category->name }}</a>
+                            </li>
+                        @endforeach
+                    </ul>
+                </div>
+
                     <table class="min-w-full divide-y divide-gray-200">
                         <thead class="bg-gray-50">
                             <tr>
